@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <h2 class="text-center"> Country Data</h2>
+
+    <form class="row p-3 m-3 border border-2">
+        <div class="col-auto">
+            <input type="text" placeholder="Country Name" class="form-control" #cName>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Country Id" class="form-control form-control-number" #cId>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="City" class="form-control " #city>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="addCountry({name: cName.value, id: cId.value, city: city.value})">Add</button>
+        </div>
+    </form>
+
+    
+    <div class="row">
+        <ul class="list-group list-group-horizontal col">
+            <li class="list-group-item flex-fill col-4 align-self-center active">ID</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Name</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Age</li>
+        </ul>
+        <div class="col-1 bg-white filler"></div>
+    </div>
+    
+     
+    <div class="row" *ngFor="let e of countries">
+        
+            <ul class="list-group list-group-horizontal col">
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.id }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.name }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.city }}</li>
+                
+            </ul>
+            
+            <button class=" col-1 btn btn-sm btn-outline-danger rm1" (click)="removeCountry(e)"><i class="far fa-trash-alt"></i></button>
+        
+    </div>
+
+    
+</div>
+

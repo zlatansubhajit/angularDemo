@@ -6,8 +6,32 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\fontawesome.css">
 </head>
 <body>
-  <app-root></app-root>
+  <div id="bodyWrapper">
+    <div class="container">
+      <header style="color: darkblue; background-color: #d1d1d1; max-width: fit-content;">Header Information</header>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center mb-3">
+        <img src="https://iconape.com/wp-content/files/pa/273000/svg/273000.svg" alt="A logo" class="headerImg col-4">
+      </div>
+      
+    </div>
+  
+    <app-root></app-root>
+  </div>
+  
+  <div class="container-fluid m-0 p-0 " id="footer">
+    <footer style="background-color: #d1d1d1;">
+      <div class="footer-copyright text-center p-3">© 2020 Copyright:
+          <a href="https://tatasteeleurope.com/"> Tatasteeleurope.com</a>
+      </div>
+    </footer>
+  </div>
+
 </body>
+
+
 </html>

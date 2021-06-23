@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="text-center m-3"> Dashboard </h2>
+    <div class="row m-3 p-5">
+        <input type="text" class="form-control" name="name" [(ngModel)]="name" (ngModelChange)="search()" placeholder="Enter Employee name to search">
+    </div>
+    
+    <div class="row">
+        <ul class="list-group list-group-horizontal col">
+            <li class="list-group-item flex-fill col-4 align-self-center active">ID</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Name</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Age</li>
+        </ul>
+    </div>
+    
+     
+    <div class="row" *ngFor="let e of emp">
+        
+            <ul class="list-group list-group-horizontal col">
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.id }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.name }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.age }}</li>
+                
+            </ul>
+            
+        
+    </div>
+</div>

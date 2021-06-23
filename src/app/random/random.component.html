@@ -1,0 +1,100 @@
+<div class="container">
+    
+    <h2 class="text-center"> Employee Data</h2>
+
+    <form class="row p-3 m-3 border border-2">
+        <div class="col-auto">
+            <input type="text" placeholder="Employee Name" class="form-control" #eName>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Employee Id" class="form-control form-control-number" #eId>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Employee Age" class="form-control form-control-number" #eAge>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Geography" class="form-control" #eGeo>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Location" class="form-control" #eLoc>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Branch" class="form-control" #eBr>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Project" class="form-control" #ePr>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Department" class="form-control" #eDpt>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Grade" class="form-control" #eGr>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="addEmployee({name: eName.value, id: eId.value, age: eAge.value, geography: eGeo.value, location: eLoc.value, branch: eBr.value, project: ePr.value, department: eDpt.value, grade: eGr.value})">Add</button>
+        </div>
+    </form>
+
+    
+   <!--  <div class="row">
+        <ul class="list-group list-group-horizontal col">
+            <li class="list-group-item flex-fill col-4 align-self-center active">ID</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Name</li>
+            <li class="list-group-item flex-fill col-4 align-self-center active">Age</li>
+        </ul>
+        <div class="col-1 bg-white filler"></div>
+    </div>
+    
+     
+    <div class="row" *ngFor="let e of employees">
+        
+            <ul class="list-group list-group-horizontal col">
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.id }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.name }}</li>
+                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.age }}</li>
+                
+            </ul>
+            
+            <button class=" col-1 btn btn-sm btn-outline-danger rm1" (click)="removeEmployee(e)"><i class="far fa-trash-alt"></i></button>
+        
+    </div> -->
+
+    
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead style="background-color: steelblue; color: white;">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Geography</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Branch</th>
+                  <th scope="col">Project</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Grade</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let e of employees">
+                  <tr>
+                      <th scope="row">{{ e.id }}</th>
+                      <td>{{ e.name }}</td>
+                      <td>{{ e.age }}</td>
+                      <td>{{ e.geography }}</td>
+                      <td>{{ e.location }}</td>
+                      <td>{{ e.branch }}</td>
+                      <td>{{ e.project }}</td>
+                      <td>{{ e.department }}</td>
+                      <td>{{ e.grade }}</td>
+                      <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeEmployee(e)"><i class="far fa-trash-alt"></i></button></td>
+                  </tr>
+              </tbody>
+        </table>
+    </div>
+</div>
+
+

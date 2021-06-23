@@ -1,0 +1,9 @@
+li a.nav-link:hover {
+    background-color: black;
+    color: ghostwhite;
+}
+
+
+li a.nav-link.active {
+    background-color: rgb(147, 169, 190);
+}
