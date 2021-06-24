@@ -17,13 +17,16 @@ export class RandomThreeComponent implements OnInit {
     this.companies = this._companyService.getCompanyData();
   }
 
-  addCompany(e: {name: string, id: string}) {
+  addCompany(e: {id: string, name: string, origin: string, product: string, revenue: string, people: string, ceo: string, established: string}) {
     let Id = parseInt(e.id);
+    let rev = parseInt(e.revenue);
+    let peo = parseInt(e.people)
+    let est = parseInt(e.established)
     if(e.name === '') {
-      alert('Please do not enter blank name');
+      alert('Please do not submit blank details');
       return;
     } else {
-    this.companies.push({name: e.name, id: Id});
+    this.companies.push({id: Id, name: e.name, origin: e.origin, product: e.product, revenue: rev, people: peo, ceo: e.ceo, established: est});
     }
    }
  

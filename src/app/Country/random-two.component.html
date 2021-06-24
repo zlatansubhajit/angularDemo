@@ -1,0 +1,74 @@
+<div class="container">
+    
+    <h2 class="text-center"> Country Data</h2>
+
+    <form class="row p-3 m-3 border border-2">
+        <div class="col-auto">
+            <input type="number" placeholder="Country Id" class="form-control form-control-number" #cId>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Country Name" class="form-control" #cName>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Capital" class="form-control " #cap>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Continent" class="form-control " #cont>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Government" class="form-control " #cGov>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Population" class="form-control " #cPop>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Currency" class="form-control " #curr>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Terrain" class="form-control " #cTer>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="addCountry({id: cId.value, name: cName.value, capital: cap.value, continent: cont.value, government: cGov.value, population: cPop.value, currency: curr.value, terrain: cTer.value})">Add</button>
+        </div>
+    </form>
+
+    
+   
+    
+     
+    <div class="table-responsive" >
+        <table class="table table-bordered">
+            <thead style="background-color: steelblue; color: white;">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Capital</th>
+                    <th scope="col">Continent</th>
+                    <th scope="col">Government</th>
+                    <th scope="col">Population</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Terrain</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let c of countries">
+                <tr>
+                    <th scope="row">{{ c.id }}</th>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.capital }}</td>
+                    <td>{{ c.continent }}</td>
+                    <td>{{ c.government }}</td>
+                    <td>{{ c.population }}</td>
+                    <td>{{ c.currency }}</td>
+                    <td>{{ c.terrain }}</td>
+                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCountry(c)"><i class="far fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+            
+        
+    </div>
+
+    
+</div>
+

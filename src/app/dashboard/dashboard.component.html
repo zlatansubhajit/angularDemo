@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h2 class="text-center m-3"> Dashboard </h2>
     <div class="row m-3 p-5">
         <input type="text" class="form-control" name="name" [(ngModel)]="name" (ngModelChange)="search()" placeholder="Enter Employee name to search">
@@ -25,3 +25,44 @@
         
     </div>
 </div>
+ -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 mt-3 align-self-start">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#empcollapse" role="button" aria-expanded="false" aria-controls="empcollapse">View Employees</a>
+                <div class="collapse" id="empcollapse">
+                    <div class="card card-body">
+                        <div class="btn-group-vertical" role="group" >
+                            <button type="button" class="btn btn-outline-primary">By Name</button>
+                            <button type="button" class="btn btn-outline-primary">By Id</button>
+                            <button type="button" class="btn btn-outline-primary">By Location</button>
+                        </div>
+                    </div>
+                  </div>
+                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#countrycollapse" role="button" aria-expanded="false" aria-controls="countrycollapse">View Countries</a>
+                <div class="collapse" id="countrycollapse">
+                    <div class="card card-body">
+                        <div class="btn-group-vertical" role="group" >
+                            <button type="button" class="btn btn-outline-primary">By Name</button>
+                            <button type="button" class="btn btn-outline-primary">By Id</button>
+                            <button type="button" class="btn btn-outline-primary">By Terrain</button>
+                        </div>
+                    </div>
+                  </div>
+                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#companycollapse" role="button" aria-expanded="false" aria-controls="companycollapse">View Companies</a>
+                <div class="collapse" id="companycollapse">
+                    <div class="card card-body">
+                        <div class="btn-group-vertical" role="group" >
+                            <button type="button" class="btn btn-outline-primary">By Name</button>
+                            <button type="button" class="btn btn-outline-primary">By Id</button>
+                            <button type="button" class="btn btn-outline-primary">By Product</button>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>
+    

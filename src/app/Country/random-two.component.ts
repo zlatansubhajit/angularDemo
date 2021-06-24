@@ -17,13 +17,14 @@ export class RandomTwoComponent implements OnInit {
     this.countries = this._countryService.getCountryData();
   }
 
-  addCountry(e: {name: string, id: string, city: string}) {
+  addCountry(e: {id: string, name: string, capital: string, continent: string, government: string, population: string, currency: string, terrain: string}) {
     let Id = parseInt(e.id);
-    if(e.name === '' || e.city === '') {
+    let pop = parseInt(e.population);
+    if(e.name === '' || e.capital === '') {
       alert('Please do not submit blank details');
       return;
     } else {
-    this.countries.push({name: e.name, id: Id, city: e.city});
+    this.countries.push({id: Id, name: e.name, capital: e.capital, continent: e.continent, government: e.government, population: pop, currency: e.currency, terrain: e.terrain});
     }
    }
  

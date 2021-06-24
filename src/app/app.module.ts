@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DataFileService } from './data-file.service';
-import { RandomThreeComponent } from './random-three/random-three.component';
+import { RandomThreeComponent } from './company/random-three.component';
 import { EpicFormComponent } from './epic-form/epic-form.component';
 
 @NgModule({

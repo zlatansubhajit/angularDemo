@@ -1,0 +1,68 @@
+<div class="container">
+    
+    <h2 class="text-center"> Company Data</h2>
+
+    <form class="row p-3 m-3 border border-2">
+        <div class="col-auto">
+            <input type="number" placeholder="Company Id" class="form-control form-control-number" #cmId>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Company Name" class="form-control" #cmName>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Company origin" class="form-control form-control-number" #cmOrg>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="Product" class="form-control" #cmProd>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Revenue" class="form-control" #cmRev>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="People" class="form-control" #cmPeo>
+        </div>
+        <div class="col-auto">
+            <input type="text" placeholder="CEO" class="form-control" #cmCeo>
+        </div>
+        <div class="col-auto">
+            <input type="number" placeholder="Established" class="form-control" #cmEst>
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="addCompany({id: cmId.value, name: cmName.value, origin: cmOrg.value, product: cmProd.value, revenue: cmRev.value, people: cmPeo.value, ceo: cmCeo.value, established: cmEst.value})">Add</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead style="background-color: steelblue; color: white;">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Revenue</th>
+                    <th scope="col">People</th>
+                    <th scope="col">CEO</th>
+                    <th scope="col">Established</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let e of companies">
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.origin }}</td>
+                    <td>{{ e.product }}</td>
+                    <td>{{ e.revenue }}</td>
+                    <td>{{ e.people }}</td>
+                    <td>{{ e.ceo }}</td>
+                    <td>{{ e.established }}</td>
+                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCompany(e)"><i class="far fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+</div>
+

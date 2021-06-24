@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { RandomTwoComponent } from "./random-two/random-two.component";
-import { RandomThreeComponent } from "./random-three/random-three.component";
-import { RandomComponent } from "./random/random.component";
+import { RandomTwoComponent } from "./Country/random-two.component";
+import { RandomThreeComponent } from "./company/random-three.component";
+import { RandomComponent } from "./employee/random.component";
 import { EpicFormComponent } from "./epic-form/epic-form.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
