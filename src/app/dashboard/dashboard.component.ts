@@ -9,6 +9,7 @@ import { DataFileService } from '../data-file.service';
 })
 export class DashboardComponent implements OnInit {
   public emp: Employee[] = [];
+  public detail?: Employee;
   name: any;
 
   constructor(private _dashboardService: DataFileService) { }
@@ -25,6 +26,10 @@ export class DashboardComponent implements OnInit {
         return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase());
       });
     }
+  }
+
+  showEmployee(e: Employee) {
+    this.detail = e;
   }
 
 }
