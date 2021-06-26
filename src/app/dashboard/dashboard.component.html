@@ -1,31 +1,3 @@
-<!-- <div class="container">
-    <h2 class="text-center m-3"> Dashboard </h2>
-    <div class="row m-3 p-5">
-        <input type="text" class="form-control" name="name" [(ngModel)]="name" (ngModelChange)="search()" placeholder="Enter Employee name to search">
-    </div>
-    
-    <div class="row">
-        <ul class="list-group list-group-horizontal col">
-            <li class="list-group-item flex-fill col-4 align-self-center active">ID</li>
-            <li class="list-group-item flex-fill col-4 align-self-center active">Name</li>
-            <li class="list-group-item flex-fill col-4 align-self-center active">Age</li>
-        </ul>
-    </div>
-    
-     
-    <div class="row" *ngFor="let e of emp">
-        
-            <ul class="list-group list-group-horizontal col">
-                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.id }}</li>
-                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.name }}</li>
-                <li class="list-group-item flex-fill col-4 align-self-center">{{ e.age }}</li>
-                
-            </ul>
-            
-        
-    </div>
-</div>
- -->
 
 <div class="container">
     <div class="row">
@@ -35,9 +7,9 @@
                 <div class="collapse" id="empcollapse">
                     <div class="card card-body">
                         <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="collapse" href="#empbody" role="button" aria-expanded="false" aria-controls="empbody">By Name</button>
-                            <button type="button" class="btn btn-outline-primary">By Id</button>
-                            <button type="button" class="btn btn-outline-primary">By Location</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByName" role="button" aria-expanded="false" aria-controls="empByName">By Name</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empById" role="button" aria-expanded="false" aria-controls="empById">By Id</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByLoc" role="button" aria-expanded="false" aria-controls="empByLoc">By Location</button>
                         </div>
                     </div>
                   </div>
@@ -45,9 +17,9 @@
                 <div class="collapse" id="countrycollapse">
                     <div class="card card-body">
                         <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-primary">By Name</button>
-                            <button type="button" class="btn btn-outline-primary">By Id</button>
-                            <button type="button" class="btn btn-outline-primary">By Terrain</button>
+                            <button type="button" class="btn btn-outline-secondary">By Name</button>
+                            <button type="button" class="btn btn-outline-secondary">By Id</button>
+                            <button type="button" class="btn btn-outline-secondary">By Terrain</button>
                         </div>
                     </div>
                   </div>
@@ -55,98 +27,299 @@
                 <div class="collapse" id="companycollapse">
                     <div class="card card-body">
                         <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-primary">By Name</button>
-                            <button type="button" class="btn btn-outline-primary">By Id</button>
-                            <button type="button" class="btn btn-outline-primary">By Product</button>
+                            <button type="button" class="btn btn-outline-secondary">By Name</button>
+                            <button type="button" class="btn btn-outline-secondary">By Id</button>
+                            <button type="button" class="btn btn-outline-secondary">By Product</button>
                         </div>
                     </div>
                   </div>
               </div>
         </div>
-        <div class="col mt-3">
-            <div class="collapse" id="empbody" >
-                
-                    <div class="btn-group" role="group"  *ngFor="let e of emp">
-                        <button type="button" class="btn btn-secondary m-1" (click)="showEmployee(e)">{{ e.name }}</button> 
-                    </div>
-                    <div class="card card-body" *ngIf="detail">
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead style="background-color: steelblue; color: white;">
-                                    <tr>
-                                      <th scope="col">ID</th>
-                                      <th scope="col">Age</th>
-                                      <th scope="col">Geography</th>
-                                      <th scope="col">Location</th>
-                                      <th scope="col">Branch</th>
-                                      <th scope="col">Project</th>
-                                      <th scope="col">Department</th>
-                                      <th scope="col">Grade</th>
-                                      <th scope="col">Action</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">{{ detail.id }}</th>
-                                          <td>{{ detail.age }}</td>
-                                          <td>{{ detail.geography }}</td>
-                                          <td>{{ detail.location }}</td>
-                                          <td>{{ detail.branch }}</td>
-                                          <td>{{ detail.project }}</td>
-                                          <td>{{ detail.department }}</td>
-                                          <td>{{ detail.grade }}</td>
-                                          <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-edit"></i></button></td>
-                                      </tr>
-                                  </tbody>
-                            </table>
+        
+        <div class="col">
+            <!-- search by employee name -->
+            <div class="row mt-3">
+                <div class="collapse" id="empByName" >            
+                       <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
+                            <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'ename'+i" role="button" aria-expanded="false" [attr.aria-controls]="'ename' + i" (click)="showEmployee(e)" style="max-width: fit-content;">{{ e.name }}</button>
+                            <div class="table-responsive collapse" [id]="'ename'+i">
+                                <table class="table table-bordered">
+                                    <thead style="background-color: steelblue; color: white;">
+                                        <tr>
+                                          <th scope="col">ID</th>
+                                          <th scope="col">Age</th>
+                                          <th scope="col">Geography</th>
+                                          <th scope="col">Location</th>
+                                          <th scope="col">Branch</th>
+                                          <th scope="col">Project</th>
+                                          <th scope="col">Department</th>
+                                          <th scope="col">Grade</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <th scope="row">{{ e.id }}</th>
+                                              <td>{{ e.age }}</td>
+                                              <td>{{ e.geography }}</td>
+                                              <td>{{ e.location }}</td>
+                                              <td>{{ e.branch }}</td>
+                                              <td>{{ e.project }}</td>
+                                              <td>{{ e.department }}</td>
+                                              <td>{{ e.grade }}</td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#nameModal"><i class="far fa-edit"></i></button></td>
+                                          </tr>
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>   
+    
+                  </div>
+    
+                  <!-- Modal -->
+                    <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row p-3 m-3 border border-2">
+                                    <div class="col-auto m-1">
+                                        <label for="id">Employee Id</label>
+                                        <input type="number" placeholder="Employee Id" class="form-control form-control-number" name="id" [(ngModel)]="detail.id" #eId>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="age">Employee Age</label>
+                                        <input type="number" placeholder="Employee Age" class="form-control form-control-number" name="age" [(ngModel)]="detail.age" #eAge>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="geography">Employee Geography</label>
+                                        <input type="text" placeholder="Geography" class="form-control" name="geography" [(ngModel)]="detail.geography" #eGeo>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="location">Employee Location</label>
+                                        <input type="text" placeholder="Location" class="form-control" name="location" [(ngModel)]="detail.location" #eLoc>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="branch">Employee Branch</label>
+                                        <input type="text" placeholder="Branch" class="form-control" name="branch" [(ngModel)]="detail.branch" #eBr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="project">Employee Project</label>
+                                        <input type="text" placeholder="Project" class="form-control" name="project" [(ngModel)]="detail.project" #ePr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="department">Employee Department</label>
+                                        <input type="text" placeholder="Department" class="form-control" name="department" [(ngModel)]="detail.department" #eDpt>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="grade">Employee Grade</label>
+                                        <input type="text" placeholder="Grade" class="form-control" name="grade" [(ngModel)]="detail.grade" #eGr>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateEmp({ id: eId.value, age: eAge.value, geography: eGeo.value, location: eLoc.value, branch: eBr.value, project: ePr.value, department: eDpt.value, grade: eGr.value})">Save changes</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
-                
-              </div>
-              <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+                    
+            </div>
+            <!-- search by employee name -->
+
+            <!-- search by employee ID -->
+            <div class="row mt-3">
+                <div class="collapse" id="empById" >            
+                       <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
+                            <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'eId'+i" role="button" aria-expanded="false" [attr.aria-controls]="'eId' + i" (click)="showEmployee(e)" style="max-width: fit-content;">{{ e.id }}</button>
+                            <div class="table-responsive collapse" [id]="'eId'+i">
+                                <table class="table table-bordered">
+                                    <thead style="background-color: steelblue; color: white;">
+                                        <tr>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Age</th>
+                                          <th scope="col">Geography</th>
+                                          <th scope="col">Location</th>
+                                          <th scope="col">Branch</th>
+                                          <th scope="col">Project</th>
+                                          <th scope="col">Department</th>
+                                          <th scope="col">Grade</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <th scope="row">{{ e.name }}</th>
+                                              <td>{{ e.age }}</td>
+                                              <td>{{ e.geography }}</td>
+                                              <td>{{ e.location }}</td>
+                                              <td>{{ e.branch }}</td>
+                                              <td>{{ e.project }}</td>
+                                              <td>{{ e.department }}</td>
+                                              <td>{{ e.grade }}</td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#idModal"><i class="far fa-edit"></i></button></td>
+                                          </tr>
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>   
+    
+                  </div>
+    
+                  <!-- Modal -->
+                    <div class="modal fade" id="idModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row p-3 m-3 border border-2">
+                                    <div class="col-auto m-1">
+                                        <label for="name">Employee Name</label>
+                                        <input type="text" placeholder="Employee Id" class="form-control" name="name" [(ngModel)]="detail.name" #eName>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="age">Employee Age</label>
+                                        <input type="number" placeholder="Employee Age" class="form-control form-control-number" name="age" [(ngModel)]="detail.age" #eAge>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="geography">Employee Geography</label>
+                                        <input type="text" placeholder="Geography" class="form-control" name="geography" [(ngModel)]="detail.geography" #eGeo>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="location">Employee Location</label>
+                                        <input type="text" placeholder="Location" class="form-control" name="location" [(ngModel)]="detail.location" #eLoc>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="branch">Employee Branch</label>
+                                        <input type="text" placeholder="Branch" class="form-control" name="branch" [(ngModel)]="detail.branch" #eBr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="project">Employee Project</label>
+                                        <input type="text" placeholder="Project" class="form-control" name="project" [(ngModel)]="detail.project" #ePr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="department">Employee Department</label>
+                                        <input type="text" placeholder="Department" class="form-control" name="department" [(ngModel)]="detail.department" #eDpt>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="grade">Employee Grade</label>
+                                        <input type="text" placeholder="Grade" class="form-control" name="grade" [(ngModel)]="detail.grade" #eGr>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateEmpById({id: '', name: eName.value, age: eAge.value, geography: eGeo.value, location: eLoc.value, branch: eBr.value, project: ePr.value, department: eDpt.value, grade: eGr.value})">Save changes</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <form class="row p-3 m-3 border border-2">
-                                <div class="col-auto">
-                                    <input type="number" placeholder="Employee Id" class="form-control form-control-number" #eId>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="number" placeholder="Employee Age" class="form-control form-control-number" #eAge>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Geography" class="form-control" #eGeo>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Location" class="form-control" #eLoc>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Branch" class="form-control" #eBr>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Project" class="form-control" #ePr>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Department" class="form-control" #eDpt>
-                                </div>
-                                <div class="col-auto">
-                                    <input type="text" placeholder="Grade" class="form-control" #eGr>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
+    
+                    
+            </div>
+            <!-- search by employee ID -->
+
+            <!-- search by employee Location -->
+            <div class="row mt-3">
+                <div class="collapse" id="empByLoc" >            
+                       <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
+                            <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'eLoc'+i" role="button" aria-expanded="false" [attr.aria-controls]="'eLoc' + i" (click)="showEmployee(e)" style="max-width: fit-content;">{{ e.location }}</button>
+                            <div class="table-responsive collapse" [id]="'eLoc'+i">
+                                <table class="table table-bordered">
+                                    <thead style="background-color: steelblue; color: white;">
+                                        <tr>
+                                          <th scope="col">Id</th>  
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Age</th>
+                                          <th scope="col">Geography</th>
+                                          <th scope="col">Branch</th>
+                                          <th scope="col">Project</th>
+                                          <th scope="col">Department</th>
+                                          <th scope="col">Grade</th>
+                                          <th scope="col">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr>
+                                              <th scope="row">{{ e.id }}</th>
+                                              <td>{{ e.name }}</td>
+                                              <td>{{ e.age }}</td>
+                                              <td>{{ e.geography }}</td>
+                                              <td>{{ e.branch }}</td>
+                                              <td>{{ e.project }}</td>
+                                              <td>{{ e.department }}</td>
+                                              <td>{{ e.grade }}</td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#locModal"><i class="far fa-edit"></i></button></td>
+                                          </tr>
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>   
+    
+                  </div>
+    
+                  <!-- Modal -->
+                    <div class="modal fade" id="locModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row p-3 m-3 border border-2">
+                                    <div class="col-auto m-1">
+                                        <label for="id">Employee Id</label>
+                                        <input type="number" placeholder="Employee Id" class="form-control form-control-number" name="id" [(ngModel)]="detail.id" #eId>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="name">Employee Name</label>
+                                        <input type="text" placeholder="Employee name" class="form-control" name="name" [(ngModel)]="detail.name" #eName>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="age">Employee Age</label>
+                                        <input type="number" placeholder="Employee Age" class="form-control form-control-number" name="age" [(ngModel)]="detail.age" #eAge>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="geography">Employee Geography</label>
+                                        <input type="text" placeholder="Geography" class="form-control" name="geography" [(ngModel)]="detail.geography" #eGeo>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="branch">Employee Branch</label>
+                                        <input type="text" placeholder="Branch" class="form-control" name="branch" [(ngModel)]="detail.branch" #eBr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="project">Employee Project</label>
+                                        <input type="text" placeholder="Project" class="form-control" name="project" [(ngModel)]="detail.project" #ePr>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="department">Employee Department</label>
+                                        <input type="text" placeholder="Department" class="form-control" name="department" [(ngModel)]="detail.department" #eDpt>
+                                    </div>
+                                    <div class="col-auto m-1">
+                                        <label for="grade">Employee Grade</label>
+                                        <input type="text" placeholder="Grade" class="form-control" name="grade" [(ngModel)]="detail.grade" #eGr>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateEmpById({id: eId.value, name: eName.value, age: eAge.value, geography: eGeo.value, location: '', branch: eBr.value, project: ePr.value, department: eDpt.value, grade: eGr.value})">Save changes</button>
+                            </div>
+                        </div>
+                        </div>
                     </div>
-                </div>
+    
+                    
+            </div>
+            <!-- search by employee Location -->
         </div>
+        
     </div>
 </div>
     
