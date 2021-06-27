@@ -1,9 +1,13 @@
 li a.nav-link:hover {
-    background-color: black;
+    background-color: steelblue;
     color: ghostwhite;
 }
 
 
 li a.nav-link.active {
-    background-color: rgb(147, 169, 190);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-bottom: steelblue;
+    border-style: solid;
 }

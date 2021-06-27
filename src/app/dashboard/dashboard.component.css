@@ -1,3 +1,14 @@
 .hideChildren>div{
     display: none;
  }
+
+ div.card>button {
+    text-align: start;
+    background-color: #d1d1d1;
+    color: steelblue;
+    font-weight: bold;
+ }
+
+ .hidden {
+    display: none;
+ }

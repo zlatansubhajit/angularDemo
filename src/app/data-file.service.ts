@@ -24,9 +24,9 @@ export class DataFileService {
       {"id": 1, "name": "xiomi", "origin": "China", "product": "mobile", "revenue": 10000000, "people": 20000, "ceo": "Lei Jun", "established": 1990},
       {"id": 2, "name": "samsung", "origin": "China", "product": "screen", "revenue": 50000000, "people": 200000, "ceo": "XXX", "established": 1970},
       {"id": 3, "name": "apple", "origin": "China", "product": "multi", "revenue": 200000000, "people": 50000, "ceo": "Tim Cook", "established": 1960},
-      {"id": 4, "name": "huawei", "origin": "China", "product": "mobile", "revenue": 10000000, "people": 2000, "ceo": "YYY", "established": 1950},
-      {"id": 5, "name": "oppo", "origin": "China", "product": "mobile", "revenue": 4000000, "people": 80000, "ceo": "ZZZ", "established": 1998},
-      {"id": 6, "name": "nokia", "origin": "China", "product": "mobile", "revenue": 800000, "people": 20000, "ceo": "MMM", "established": 1992}
+      {"id": 4, "name": "huawei", "origin": "China", "product": "camera", "revenue": 10000000, "people": 2000, "ceo": "YYY", "established": 1950},
+      {"id": 5, "name": "oppo", "origin": "China", "product": "audio", "revenue": 4000000, "people": 80000, "ceo": "ZZZ", "established": 1998},
+      {"id": 6, "name": "nokia", "origin": "China", "product": "laptop", "revenue": 800000, "people": 20000, "ceo": "MMM", "established": 1992}
     ];
     
   }
@@ -35,10 +35,10 @@ export class DataFileService {
     return [
       {"id": 1, "name": "India", "capital": "New Delhi", "continent": "Asia", "government": "democracy", "population": 1400000000, "currency": "Rupee", "terrain": "Plane"},
       {"id": 2, "name": "USA", "capital": "Washington DC", "continent": "North America", "government": "democracy", "population": 100000000, "currency": "Dollar", "terrain": "Mountain"},
-      {"id": 3, "name": "Argentina", "capital": "Buenos Ares", "continent": "South America", "government": "democracy", "population": 1400000, "currency": "Peso", "terrain": "Mountain"},
+      {"id": 3, "name": "Argentina", "capital": "Buenos Ares", "continent": "South America", "government": "democracy", "population": 1400000, "currency": "Peso", "terrain": "Desert"},
       {"id": 4, "name": "Brasil", "capital": "Brasilia", "continent": "South America", "government": "democracy", "population": 20000000, "currency": "Real", "terrain": "Costal"},
-      {"id": 5, "name": "Germany", "capital": "Berlin", "continent": "Europe", "government": "democracy", "population": 5000000, "currency": "Euro", "terrain": "Mountain"},
-      {"id": 6, "name": "England", "capital": "London", "continent": "Europe", "government": "Monarch", "population": 2000000, "currency": "Pound", "terrain": "Plane"}
+      {"id": 5, "name": "Germany", "capital": "Berlin", "continent": "Europe", "government": "democracy", "population": 5000000, "currency": "Euro", "terrain": "Plateau"},
+      {"id": 6, "name": "England", "capital": "London", "continent": "Europe", "government": "Monarch", "population": 2000000, "currency": "Pound", "terrain": "Tundra"}
     ];
     
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Employee } from '../Employee';
+import { Country, Company } from '../Multi';
 import { DataFileService } from '../data-file.service';
+import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +11,9 @@ import { DataFileService } from '../data-file.service';
 })
 export class DashboardComponent implements OnInit {
   public emp: Employee[] = [];
+  public country: Country[] = [];
+  public company: Company[] = [];
+
   public detail: Employee = {
     name: "",
     id: 0,
@@ -22,12 +27,36 @@ export class DashboardComponent implements OnInit {
   }
   name: any;
 
+  public cntr: Country = {
+    name: "",
+    id: 0,
+    capital: "",
+    continent: "",
+    government: "",
+    population: 0,
+    currency: "",
+    terrain: ""
+  }
+
+  public comp: Company = {
+    name: "",
+    id: 0,
+    origin: "",
+    product: "",
+    revenue: 0,
+    people: 0,
+    ceo: "",
+    established: 0
+  }
+
   
 
   constructor(private _dashboardService: DataFileService) { }
 
   ngOnInit(): void {
     this.emp = this._dashboardService.getEmployeeData();
+    this.country = this._dashboardService.getCountryData();
+    this.company = this._dashboardService.getCompanyData();
   }
 
   search() {
@@ -42,6 +71,14 @@ export class DashboardComponent implements OnInit {
 
   showEmployee(e: Employee) {
     this.detail = e;
+  }
+
+  showCountry(e: Country) {
+    this.cntr = e; 
+  }
+
+  showCompany(e: Company) {
+    this.comp = e;
   }
 
   updateEmp(e: { id: string, age: string, geography: string, location: string, branch: string, project: string, department: string, grade: string}) {
@@ -79,9 +116,17 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  toggleDiv(id: string) {
+    document.querySelectorAll(".show").forEach(function(div) {
+      if (div.id == id) {
+        // Toggle specified DIV
+        return;
+      } else {
+        // Hide other DIVs
+        div.classList.remove("show");
+    }
+  });
   
-    
-  
-  
+  }
 
 }
