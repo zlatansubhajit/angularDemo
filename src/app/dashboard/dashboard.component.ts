@@ -117,6 +117,8 @@ export class DashboardComponent implements OnInit {
   }
 
   toggleDiv(id: string) {
+    
+    
     document.querySelectorAll(".show").forEach(function(div) {
       if (div.id == id) {
         // Toggle specified DIV
@@ -126,6 +128,10 @@ export class DashboardComponent implements OnInit {
         div.classList.remove("show");
     }
   });
+
+  var first = document.querySelector(".firstCollapse");
+    first?.classList.remove("show");
+    first?.classList.add("hidden");
   
   }
 
