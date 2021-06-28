@@ -36,8 +36,8 @@
         
         <div class="col">
             <!-- search by employee name -->
-            <div class="row mt-3">
-                <div class="collapse" id="empByName" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="empByName" >            
                        <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'ename'+i" role="button" aria-expanded="false" [attr.aria-controls]="'ename' + i" (click)="showEmployee(e)" >{{ e.name }}</button>
                             <div class="table-responsive collapse" [id]="'ename'+i">
@@ -130,8 +130,8 @@
             <!-- search by employee name -->
 
             <!-- search by employee ID -->
-            <div class="row mt-3">
-                <div class="collapse" id="empById" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="empById" >            
                        <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'eId'+i" role="button" aria-expanded="false" [attr.aria-controls]="'eId' + i" (click)="showEmployee(e)" >{{ e.id }}</button>
                             <div class="table-responsive collapse" [id]="'eId'+i">
@@ -224,8 +224,8 @@
             <!-- search by employee ID -->
 
             <!-- search by employee Location -->
-            <div class="row mt-3">
-                <div class="collapse" id="empByLoc" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="empByLoc" >            
                        <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'eLoc'+i" role="button" aria-expanded="false" [attr.aria-controls]="'eLoc' + i" (click)="showEmployee(e)" >{{ e.location }}</button>
                             <div class="table-responsive collapse" [id]="'eLoc'+i">
@@ -318,8 +318,8 @@
             <!-- search by employee Location -->
 
             <!-- search by country name -->
-            <div class="row mt-3">
-                <div class="collapse" id="cntByName" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="cntByName" >            
                        <div class="card card-body" *ngFor="let e of country; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'cname'+i" role="button" aria-expanded="false" [attr.aria-controls]="'cname' + i" (click)="showCountry(e)" >{{ e.name }}</button>
                             <div class="table-responsive collapse" [id]="'cname'+i">
@@ -408,8 +408,8 @@
             <!-- search by country name -->
 
             <!-- search by country terrain -->
-            <div class="row mt-3">
-                <div class="collapse" id="cntByTerrain" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="cntByTerrain" >            
                        <div class="card card-body" *ngFor="let e of country; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'cterr'+i" role="button" aria-expanded="false" [attr.aria-controls]="'cterr' + i" (click)="showCountry(e)" >{{ e.terrain }}</button>
                             <div class="table-responsive collapse" [id]="'cterr'+i">
@@ -498,8 +498,8 @@
             <!-- search by country terrain -->
 
             <!-- search by company name -->
-            <div class="row mt-3">
-                <div class="collapse" id="comByName" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="comByName" >            
                        <div class="card card-body" *ngFor="let e of company; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'cmname'+i" role="button" aria-expanded="false" [attr.aria-controls]="'cmname' + i" (click)="showCompany(e)" >{{ e.name }}</button>
                             <div class="table-responsive collapse" [id]="'cmname'+i">
@@ -588,8 +588,8 @@
             <!-- search by company name -->
 
             <!-- search by company product -->
-            <div class="row mt-3">
-                <div class="collapse" id="comByProd" >            
+            <div class="row">
+                <div class="collapse  mt-3" id="comByProd" >            
                        <div class="card card-body" *ngFor="let e of company; index as i; first as isFirst">
                             <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'cmprod'+i" role="button" aria-expanded="false" [attr.aria-controls]="'cmprod' + i" (click)="showCompany(e)" >{{ e.product }}</button>
                             <div class="table-responsive collapse" [id]="'cmprod'+i">

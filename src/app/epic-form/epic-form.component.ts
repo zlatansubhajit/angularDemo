@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataFileService } from '../data-file.service';
+import { Employee } from '../Employee';
+import { Country, Company } from '../Multi';
 
 @Component({
   selector: 'app-epic-form',
@@ -7,9 +10,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpicFormComponent implements OnInit {
 
-  constructor() { }
+  public emp: Employee[] = [];
+  public con: Country[] = [];
+  public comp: Company[] = [];
+  public employee?: Employee;
+  public country?: Country;
+  public company?: Company;
+
+  constructor(private _dataService: DataFileService) { }
 
   ngOnInit(): void {
+    this.emp = this._dataService.getEmployeeData();
+    this.con = this._dataService.getCountryData();
+    this.comp = this._dataService.getCompanyData();
+  }
+
+  searchData(e: string) {
+    for(var i in this.emp) {
+      if(this.emp[i].name == e) {
+        this.employee = this.emp[i];
+      }
+    }
+
+    for(var i in this.con) {
+      if(this.con[i].name == e) {
+        this.country = this.con[i];
+      }
+    }
+
+    for (var i in this.comp) {
+      if(this.comp[i].name == e) {
+        this.company = this.comp[i];
+      }
+    }
+  }
+
+  clearData() {
+    delete this.employee;
+    delete this.country;
+    delete this.company;
   }
 
 }

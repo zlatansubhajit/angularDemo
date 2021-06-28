@@ -1,1 +1,115 @@
-<p>epic-form works!</p>
+<div class="container">
+    <form class="row p-3 m-3 justify-content-center" >
+        <div class="col-md-6">
+            <input type="text" placeholder="Enter Name To Search" class="form-control" #Name>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="searchData(Name.value)">Search</button>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-danger" (click)="clearData()">Clear Search</button>
+        </div>
+    </form>
+
+    <div class="row">
+        <div *ngIf="employee">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead style="background-color: steelblue; color: white;">
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Age</th>
+                          <th scope="col">Geography</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Branch</th>
+                          <th scope="col">Project</th>
+                          <th scope="col">Department</th>
+                          <th scope="col">Grade</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <th scope="row">{{ employee.id }}</th>
+                              <td>{{ employee.name }}</td>
+                              <td>{{ employee.age }}</td>
+                              <td>{{ employee.geography }}</td>
+                              <td>{{ employee.location }}</td>
+                              <td>{{ employee.branch }}</td>
+                              <td>{{ employee.project }}</td>
+                              <td>{{ employee.department }}</td>
+                              <td>{{ employee.grade }}</td>
+                          </tr>
+                      </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div *ngIf="country">
+            <div class="table-responsive" >
+                <table class="table table-bordered">
+                    <thead style="background-color: steelblue; color: white;">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Capital</th>
+                            <th scope="col">Continent</th>
+                            <th scope="col">Government</th>
+                            <th scope="col">Population</th>
+                            <th scope="col">Currency</th>
+                            <th scope="col">Terrain</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ country.id }}</th>
+                            <td>{{ country.name }}</td>
+                            <td>{{ country.capital }}</td>
+                            <td>{{ country.continent }}</td>
+                            <td>{{ country.government }}</td>
+                            <td>{{ country.population }}</td>
+                            <td>{{ country.currency }}</td>
+                            <td>{{ country.terrain }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    
+                
+            </div>
+        </div>
+
+        <div *ngIf="company">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead style="background-color: steelblue; color: white;">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Origin</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Revenue</th>
+                            <th scope="col">People</th>
+                            <th scope="col">CEO</th>
+                            <th scope="col">Established</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">{{ company.id }}</th>
+                            <td>{{ company.name }}</td>
+                            <td>{{ company.origin }}</td>
+                            <td>{{ company.product }}</td>
+                            <td>{{ company.revenue }}</td>
+                            <td>{{ company.people }}</td>
+                            <td>{{ company.ceo }}</td>
+                            <td>{{ company.established }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

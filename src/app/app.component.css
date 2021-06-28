@@ -11,3 +11,7 @@ li a.nav-link.active {
     border-bottom: steelblue;
     border-style: solid;
 }
+
+a.dropdown-item.active {
+    background-color: steelblue;
+}
