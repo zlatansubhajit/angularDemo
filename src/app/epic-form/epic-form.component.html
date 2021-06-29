@@ -1,114 +1,48 @@
 <div class="container">
-    <form class="row p-3 m-3 justify-content-center" >
+    <form class="row g-3" #addressForm="ngForm">
         <div class="col-md-6">
-            <input type="text" placeholder="Enter Name To Search" class="form-control" #Name>
+            <label for="name">Name</label>
+            <input type="text" #name="ngModel" 
+            [class.is-invalid]="name.invalid && name.touched" name="name" ngModel placeholder="Enter Name" class="form-control" required>
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name</small>
         </div>
-        <div class="col-auto">
-            <button class="btn btn-primary" (click)="searchData(Name.value)">Search</button>
+        <div class="col-md-6">
+            <label for="phone">Phone Number</label>
+            <input type="tel" placeholder="Enter Phone Number" #phone="ngModel" pattern="^\d{10}$"
+            [class.is-invalid]="phone.invalid && phone.touched" name="phone" ngModel class="form-control" required>
+            <!-- <small [class.d-none]="phone.valid || phone.untouched"></small> -->
+            <div *ngIf="phone.errors && (phone.invalid && phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors.required">Please enter phone number!</small>
+                <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be of 10 digits!</small>
+            </div>
         </div>
-        <div class="col-auto">
-            <button class="btn btn-danger" (click)="clearData()">Clear Search</button>
+        <div class="col-md-6">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter Email ID" #email="ngModel" pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"
+            [class.is-invalid]="email.invalid && email.touched" name="email" ngModel class="form-control" required>
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">Please enter email address!</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">Email is not of correct format!</small>
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="currAdd">Current Address</label>
+            <input type="text" placeholder="Enter Current Address" #curentAdd="ngModel" name="currAdd" ngModel class="form-control">
+        </div>
+        <div class="col-12">
+            <label for="defAdd">Default Address</label>
+            <input type="text" placeholder="Enter Default Address" #defaultAdd="ngModel" name="defAdd" ngModel class="form-control">
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+            <label for="check" class="form-check-label">Current address is same as default address</label>
+            <input type="checkbox" class="form-check-input">
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary">Submit</button>
         </div>
     </form>
-
-    <div class="row">
-        <div *ngIf="employee">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead style="background-color: steelblue; color: white;">
-                        <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Age</th>
-                          <th scope="col">Geography</th>
-                          <th scope="col">Location</th>
-                          <th scope="col">Branch</th>
-                          <th scope="col">Project</th>
-                          <th scope="col">Department</th>
-                          <th scope="col">Grade</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <th scope="row">{{ employee.id }}</th>
-                              <td>{{ employee.name }}</td>
-                              <td>{{ employee.age }}</td>
-                              <td>{{ employee.geography }}</td>
-                              <td>{{ employee.location }}</td>
-                              <td>{{ employee.branch }}</td>
-                              <td>{{ employee.project }}</td>
-                              <td>{{ employee.department }}</td>
-                              <td>{{ employee.grade }}</td>
-                          </tr>
-                      </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div *ngIf="country">
-            <div class="table-responsive" >
-                <table class="table table-bordered">
-                    <thead style="background-color: steelblue; color: white;">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Capital</th>
-                            <th scope="col">Continent</th>
-                            <th scope="col">Government</th>
-                            <th scope="col">Population</th>
-                            <th scope="col">Currency</th>
-                            <th scope="col">Terrain</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">{{ country.id }}</th>
-                            <td>{{ country.name }}</td>
-                            <td>{{ country.capital }}</td>
-                            <td>{{ country.continent }}</td>
-                            <td>{{ country.government }}</td>
-                            <td>{{ country.population }}</td>
-                            <td>{{ country.currency }}</td>
-                            <td>{{ country.terrain }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                    
-                
-            </div>
-        </div>
-
-        <div *ngIf="company">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead style="background-color: steelblue; color: white;">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Origin</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Revenue</th>
-                            <th scope="col">People</th>
-                            <th scope="col">CEO</th>
-                            <th scope="col">Established</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">{{ company.id }}</th>
-                            <td>{{ company.name }}</td>
-                            <td>{{ company.origin }}</td>
-                            <td>{{ company.product }}</td>
-                            <td>{{ company.revenue }}</td>
-                            <td>{{ company.people }}</td>
-                            <td>{{ company.ceo }}</td>
-                            <td>{{ company.established }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
 </div>
 
 

@@ -19,3 +19,11 @@ export interface Country {
     currency: string;
     terrain: string;
 }
+
+export interface Address {
+    name: string;
+    phone: number;
+    email: string;
+    defAdd: string;
+    currAdd: string;
+}

@@ -43,4 +43,14 @@ export class DataFileService {
     
   }
 
+  getAddressData() {
+    return [
+      {"name": "Subhajit Paul", "phone": 9100000000, "email": "xyz@zmail.com", "defAdd": "Rajpur , Kolkata, India", "currAdd": "Sonarpur, Kolkata, India"},
+      {"name": "Zlatan Ibrahimovic", "phone": 2000000000, "email": "zlatan@zlatan.com", "defAdd": "Sweden", "currAdd": "USA"},
+      {"name": "Leonel Messi", "phone": 5000000000, "email": "messi@lionel.com", "defAdd": "Buenos Ares, Argentina", "currAdd": "Barcelona, Spain"},
+      {"name": "Frenky De Jong", "phone": 7000000000, "email": "dejong@zmail.com", "defAdd": "Amsterdam, Netherlands", "currAdd": "Barcelona, Spain"},
+      {"name": "Kevin De Bruyne", "phone": 8000000000, "email": "kevin@zmail.com", "defAdd": "Belgium", "currAdd": "London, England"}
+    ];
+  }
+
 }

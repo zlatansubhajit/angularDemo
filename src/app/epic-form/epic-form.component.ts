@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFileService } from '../data-file.service';
-import { Employee } from '../Employee';
-import { Country, Company } from '../Multi';
+import { Address } from '../Multi';
 
 @Component({
   selector: 'app-epic-form',
@@ -10,22 +9,23 @@ import { Country, Company } from '../Multi';
 })
 export class EpicFormComponent implements OnInit {
 
-  public emp: Employee[] = [];
-  public con: Country[] = [];
-  public comp: Company[] = [];
-  public employee?: Employee;
-  public country?: Country;
-  public company?: Company;
+  public newAddress: Address[] = [];
+  public address: Address= {
+    name: "",
+     phone: 0,
+      email: "",
+       defAdd: "",
+        currAdd: ""
+  }
 
   constructor(private _dataService: DataFileService) { }
 
   ngOnInit(): void {
-    this.emp = this._dataService.getEmployeeData();
-    this.con = this._dataService.getCountryData();
-    this.comp = this._dataService.getCompanyData();
+
+    this.newAddress = this._dataService.getAddressData();
   }
 
-  searchData(e: string) {
+/*   searchData(e: string) {
     for(var i in this.emp) {
       if(this.emp[i].name == e) {
         this.employee = this.emp[i];
@@ -49,6 +49,8 @@ export class EpicFormComponent implements OnInit {
     delete this.employee;
     delete this.country;
     delete this.company;
-  }
+  } */
+
+ 
 
 }
