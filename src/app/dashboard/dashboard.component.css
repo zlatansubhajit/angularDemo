@@ -15,8 +15,8 @@
  }
 
  .toggle-btn {
-    min-width: 70px;
-    min-height: 40px;
+    min-width: 50px;
+    min-height: 30px;
     background-color: gray;
     border-style: none;
     border-radius: 2px;
@@ -24,8 +24,8 @@
  }
 
  .toggle-btn>.inner-square {
-   width: 30px;
-   height: 30px;
+   width: 20px;
+   height: 22px;
    background-color: #fff;
    border-radius: 2px;
    transition: all 200ms ease-in-out;
@@ -36,5 +36,5 @@
  }
 
  .toggle-btn.clk > .inner-square {
-    margin-left: 28px;
+    margin-left: 18px;
  }
