@@ -139,7 +139,7 @@ export class DashboardComponent implements OnInit {
     document.querySelectorAll(".toggle-btn").forEach(function(div) {
       if (div.id == id) {
         // Toggle specified DIV
-        div.classList.add("clk")
+        div.classList.toggle("clk")
         return;
       } else {
         // Hide other DIVs
