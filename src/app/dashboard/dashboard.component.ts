@@ -135,4 +135,17 @@ export class DashboardComponent implements OnInit {
   
   }
 
+  fancyButton(id: string) {
+    document.querySelectorAll(".toggle-btn").forEach(function(div) {
+      if (div.id == id) {
+        // Toggle specified DIV
+        div.classList.add("clk")
+        return;
+      } else {
+        // Hide other DIVs
+        div.classList.remove("clk");
+    }
+  });
+  }
+
 }

@@ -1,41 +1,114 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-2 mt-3 align-self-start">
-            <div class="list-group">
-                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#empcollapse" role="button" aria-expanded="false" aria-controls="empcollapse">View Employees</a>
-                <div class="collapse" id="empcollapse">
-                    <div class="card card-body">
-                        <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByName" role="button" aria-expanded="false" aria-controls="empByName" (click)="toggleDiv('empByName')">By Name</button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empById" role="button" aria-expanded="false" aria-controls="empById" (click)="toggleDiv('empById')">By Id</button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByLoc" role="button" aria-expanded="false" aria-controls="empByLoc" (click)="toggleDiv('empByLoc')">By Location</button>
+        <div class="col-md-3 mt-3 align-self-start">
+            <!-- <div class="row">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#empcollapse" role="button" aria-expanded="false" aria-controls="empcollapse">View Employees</a>
+                    <div class="collapse" id="empcollapse">
+                        <div class="card card-body">
+                            <div class="btn-group-vertical" role="group" >
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByName" role="button" aria-expanded="false" aria-controls="empByName" (click)="toggleDiv('empByName')">By Name</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empById" role="button" aria-expanded="false" aria-controls="empById" (click)="toggleDiv('empById')">By Id</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#empByLoc" role="button" aria-expanded="false" aria-controls="empByLoc" (click)="toggleDiv('empByLoc')">By Location</button>
+                            </div>
                         </div>
-                    </div>
-                  </div>
-                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#countrycollapse" role="button" aria-expanded="false" aria-controls="countrycollapse">View Countries</a>
-                <div class="collapse" id="countrycollapse">
-                    <div class="card card-body">
-                        <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#cntByName" role="button" aria-expanded="false" aria-controls="cntByName" (click)="toggleDiv('cntByName')">By Name</button>
-                            <button type="button" class="btn btn-outline-secondary"data-bs-toggle="collapse" href="#cntByTerrain" role="button" aria-expanded="false" aria-controls="cntByTerrain" (click)="toggleDiv('cntByTerrain')">By Terrain</button>
+                      </div>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#countrycollapse" role="button" aria-expanded="false" aria-controls="countrycollapse">View Countries</a>
+                    <div class="collapse" id="countrycollapse">
+                        <div class="card card-body">
+                            <div class="btn-group-vertical" role="group" >
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#cntByName" role="button" aria-expanded="false" aria-controls="cntByName" (click)="toggleDiv('cntByName')">By Name</button>
+                                <button type="button" class="btn btn-outline-secondary"data-bs-toggle="collapse" href="#cntByTerrain" role="button" aria-expanded="false" aria-controls="cntByTerrain" (click)="toggleDiv('cntByTerrain')">By Terrain</button>
+                            </div>
                         </div>
-                    </div>
-                  </div>
-                <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#companycollapse" role="button" aria-expanded="false" aria-controls="companycollapse">View Companies</a>
-                <div class="collapse" id="companycollapse">
-                    <div class="card card-body">
-                        <div class="btn-group-vertical" role="group" >
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#comByName" role="button" aria-expanded="false" aria-controls="comByName" (click)="toggleDiv('comByName')">By Name</button>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#comByProd" role="button" aria-expanded="false" aria-controls="comByProd" (click)="toggleDiv('comByProd')">By Product</button>
+                      </div>
+                    <a class="list-group-item list-group-item-action" data-bs-toggle="collapse" href="#companycollapse" role="button" aria-expanded="false" aria-controls="companycollapse">View Companies</a>
+                    <div class="collapse" id="companycollapse">
+                        <div class="card card-body">
+                            <div class="btn-group-vertical" role="group" >
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#comByName" role="button" aria-expanded="false" aria-controls="comByName" (click)="toggleDiv('comByName')">By Name</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#comByProd" role="button" aria-expanded="false" aria-controls="comByProd" (click)="toggleDiv('comByProd')">By Product</button>
+                            </div>
                         </div>
-                    </div>
+                      </div>
                   </div>
-              </div>
+            </div> -->
+            <div class="row align-items-center border">
+                    <div class="col col-md-8 m-1 p-1">
+                        <p>View By Employee Name</p>
+                    </div>
+                    <div class="col-auto ">
+                        <button id="tog1" class="toggle-btn clk" (click)="fancyButton('tog1')"
+                        data-bs-toggle="collapse" href="#empByName" role="button" aria-expanded="false" aria-controls="empByName"
+                             (click)="toggleDiv('empByName')"><div class="inner-square"></div></button>
+                    </div>     
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Employee Id</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog2" class="toggle-btn" (click)="fancyButton('tog2')"
+                    data-bs-toggle="collapse" href="#empById" role="button" aria-expanded="false" aria-controls="empById"
+                     (click)="toggleDiv('empById')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Employee Location</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog3" class="toggle-btn" (click)="fancyButton('tog3')"
+                    data-bs-toggle="collapse" href="#empByLoc" role="button" aria-expanded="false" aria-controls="empByLoc"
+                     (click)="toggleDiv('empByLoc')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Country Name</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog4" class="toggle-btn" (click)="fancyButton('tog4')"
+                    data-bs-toggle="collapse" href="#cntByName" role="button" aria-expanded="false" aria-controls="cntByName"
+                     (click)="toggleDiv('cntByName')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Country Terrain</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog5" class="toggle-btn" (click)="fancyButton('tog5')"
+                    data-bs-toggle="collapse" href="#cntByTerrain" role="button" aria-expanded="false" aria-controls="cntByTerrain"
+                     (click)="toggleDiv('cntByTerrain')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Company Name</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog6" class="toggle-btn" (click)="fancyButton('tog6')"
+                    data-bs-toggle="collapse" href="#comByName" role="button" aria-expanded="false" aria-controls="comByName"
+                     (click)="toggleDiv('comByName')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            <div class="row align-items-center border">
+                <div class="col col-md-8 m-1 p-1">
+                    <p>View By Company Product</p>
+                </div>
+                <div class="col-auto ">
+                    <button id="tog7" class="toggle-btn" (click)="fancyButton('tog7')"
+                    data-bs-toggle="collapse" href="#comByProd" role="button" aria-expanded="false" aria-controls="comByProd"
+                     (click)="toggleDiv('comByProd')"><div class="inner-square"></div></button>
+                </div>
+            </div>
+            
         </div>
         
         <div class="col">
-
+            <!--default result-->
             <div class="row">
                 <div class="collapse show firstCollapse mt-3" id="empByName" >            
                        <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
