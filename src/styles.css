@@ -4,6 +4,7 @@ body {
     position: relative;
     min-height: 100vh;
     padding-bottom: 60px;
+    transition: all 300;
 }
 
 .headerImg {
@@ -36,3 +37,16 @@ form>div {
     margin: 5px;
 }
 
+button.collapse-btn {
+    font-weight: bold;
+    border-style: none;
+    background-color: transparent;
+    color:steelblue;
+}
+
+select.form-select {
+    border-style: none;
+}
+.ng-touched.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }

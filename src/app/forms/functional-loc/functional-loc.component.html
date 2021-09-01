@@ -1,0 +1,335 @@
+<h1 class="text-center mt-3 p-3">SAP PM Alteraions</h1>
+<h6 class="text-center">Type of Data</h6>
+<h5 class="text-center mb-3">Functional Location</h5>
+
+
+<!--Panel1 Start-->
+<div class="container">
+    <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#panel1" aria-expanded="false" aria-controls="panel1">
+        <em class="fas fa-caret-down"></em> Panel 1
+      </button>
+</div>
+  <br>
+
+<div class="container collapse mb-3" id="panel1" style="background-color:#e1e1e1;">
+    <form [formGroup]="form1" class="p-1" (ngSubmit)="onSubmit('form1')">
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="initiator">
+                    Initiator
+                </label>
+                <select class="form-select" aria-label="select initiator" formControlName="initiator">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+                  <small *ngIf="initiator?.invalid && initiator?.touched" class="text-danger">Invalid initiator</small>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="refNo">
+                    Reference No
+                </label>
+                <select class="form-select" formControlName="refNo" id="refNo">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+                <small *ngIf="form1.get('refNo')?.invalid && form1.get('refNo')?.touched" class="text-danger">Invalid Reference No</small>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="plant">
+                    Plant
+                </label>
+                <select class="form-select" formControlName="plant" id="plant">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="costCentre">
+                    Cost centre
+                </label>
+                <select class="form-select" aria-label="select Cost Centre" formControlName="costCentre" >
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="workArea">
+                    Work Area
+                </label>
+                <select class="form-select" formControlName="workArea" id="workArea">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="date">
+                   Date 
+                </label>
+                <select class="form-select" formControlName="date" id="date">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="telNo">
+                    Tel No
+                </label>
+                <select class="form-select" aria-label="select Tel No" formControlName="telNo" >
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+                  <div *ngIf="form1.get('telNo')?.invalid && form1.get('telNo')?.touched">
+                      <small *ngIf="form1.get('telNo')?.errors?.required" class="text-danger">Tel No required</small>
+                      <small *ngIf="form1.get('telNo')?.errors?.minlength" class="text-danger">Tel Must be 4 characters</small>
+                  </div>
+                  
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="mgmtChange">
+                    Management of Change
+                </label>
+                <div class="cell-block">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="mgmtChange" id="mgmtChangeRadio1" value="Y" formControlName="mgmtChange">
+                        <label class="form-check-label" for="mgmtChangeRadio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="mgmtChange" id="mgmtChangeRadio2" value="N" formControlName="mgmtChange">
+                        <label class="form-check-label" for="mgmtChangeRadio2">No</label>
+                      </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="legisl">
+                    Legislation
+                </label>
+                <select class="form-select" formControlName="legisl" id="legisl">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button [class.disabled]="form1.invalid" class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--Panel1 End-->
+
+<!--Panel2 Start-->
+
+<div class="container">
+    <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#panel2" aria-expanded="false" aria-controls="panel2">
+        <em class="fas fa-caret-down"></em> Panel 2 : Functional Location
+      </button>  
+</div>
+
+  <br>
+
+<div class="container collapse mb-3" id="panel2" style="background-color:#e1e1e1;">
+    <form [formGroup]="form2" class="p-1" (ngSubmit)="onSubmit('form2')">
+        <div class="row mb-3">
+            <div class="col-12 col-md-4">
+                <label for="mgmtChange">
+                    Add Attachment
+                </label>
+                <div class="cell-block">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="attachFile" id="attachmentYes" value="Y" (change)="showAttach('Y')">
+                        <label class="form-check-label" for="attachmentYes">Yes</label>
+                    </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="attachFile" id="attachmentNo" value="N" (change)="showAttach('N')">
+                        <label class="form-check-label" for="attachmentNo">No</label>
+                      </div>
+                </div>
+                
+            </div>
+            <div class="col-auto p-2 collapse" id="fileSelector1">
+                <label for="myfile">Select files:</label>
+                <input type="file" id="myfile" name="myfile" multiple formControlName="attachments">
+                <em class="far fa-trash-alt"></em>
+            </div>
+           
+        </div>
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="fnP2">
+                    Function
+                </label>
+                <select class="form-select" aria-label="select function" formControlName="fnP2" >
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="fnLocP2">
+                    Functional Location
+                </label>
+                <select class="form-select" formControlName="fnLocP2" id="fnLocP2">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="descriptionP2">
+                    Description
+                </label>
+                <select class="form-select" formControlName="descriptionP2" id="descriptionP2">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="mgmtChangeNoP2">
+                    Management of Change No
+                </label>
+                <select class="form-select" formControlName="mgmtChangeNoP2" >
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="reasonForChangeP2">
+                    Reason For Change
+                </label>
+                <select class="form-select" formControlName="reasonForChangeP2" id="reasonForChangeP2">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="manufacturerP2">
+                   Manufacturer 
+                </label>
+                <select class="form-select" formControlName="manufacturerP2" id="manufacturerP2">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row row-cols-3">
+            <div class="col-12 col-md-4">
+                <label for="modelP2">
+                    Model
+                </label>
+                <select class="form-select" formControlName="modelP2" >
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                  </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="classP2">
+                    Class
+                </label>
+                <div class="cell-block">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="classP2" id="classP2Radio1" value="Y" formControlName="classP2">
+                        <label class="form-check-label" for="classP2Radio1">Yes</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="classP2" id="classP2Radio2" value="N" formControlName="classP2">
+                        <label class="form-check-label" for="classP2Radio2">No</label>
+                      </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="damageP2">
+                    Damage Catalogue
+                </label>
+                <select class="form-select" formControlName="damageP2" id="damageP2">
+                    <option *ngFor="let n of options1" [ngValue]="n">{{n}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!--Panel2 End-->
+
+<!--Panel3 Start-->
+
+<div class="container">
+    <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#panel3" aria-expanded="false" aria-controls="panel3">
+        <em class="fas fa-caret-down"></em> Panel 3 : Approval Information
+      </button>    
+</div>
+
+  <br>
+
+<div class="container collapse mb-3"  id="panel3">
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead style="background-color: steelblue; color: white;">
+            <tr>
+                <th scope="col">Request Id</th>
+                <th scope="col">Requested By</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AKDY-BKSHSL</td>
+                <td>Amit Kumar Dey/UK/Notes</td>
+                <td>04/11/2020 09:19:47</td>
+                <td>New</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<!--Panel3 End-->
+
+<!--Panel4 Start-->
+
+<div class="container">
+    <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#panel4" aria-expanded="false" aria-controls="panel4">
+        <em class="fas fa-caret-down"></em> Panel 4 : Additional Information
+      </button>
+</div>
+
+
+  <br>
+
+<div class="container collapse mb-3"  id="panel4">
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead style="background-color: steelblue; color: white;">
+            <tr>
+                <th scope="col">Approver Name</th>
+                <th scope="col">Approver Function</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Expiration Action</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- <td contenteditable='true'></td>
+                <td contenteditable='true'></td>
+                <td contenteditable='true'></td>
+                <td contenteditable='true'></td>
+                <td contenteditable='true'></td>
+                <td contenteditable='true'></td> -->
+                <td><input type="text" class="form-control border-0"></td>
+                <td><input type="text" class="form-control border-0"></td>
+                <td><input type="text" class="form-control border-0"></td>
+                <td><input type="text" class="form-control border-0"></td>
+                <td><input type="text" class="form-control border-0"></td>
+                <td><input type="text" class="form-control border-0"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+

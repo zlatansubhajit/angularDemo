@@ -64,7 +64,7 @@
 
 <div class="container">
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered" aria-label="emp table">
             <thead style="background-color: steelblue; color: white;">
                 <tr>
                   <th scope="col">ID</th>
@@ -90,7 +90,7 @@
                       <td>{{ e.project }}</td>
                       <td>{{ e.department }}</td>
                       <td>{{ e.grade }}</td>
-                      <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeEmployee(e)"><i class="far fa-trash-alt"></i></button></td>
+                      <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeEmployee(e)"><em class="far fa-trash-alt"></em></button></td>
                   </tr>
               </tbody>
         </table>

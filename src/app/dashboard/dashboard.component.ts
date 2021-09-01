@@ -128,10 +128,6 @@ export class DashboardComponent implements OnInit {
         div.classList.remove("show");
     }
   });
-
-  var first = document.querySelector(".firstCollapse");
-    first?.classList.remove("show");
-    first?.classList.add("hidden");
   
   }
 

@@ -6,11 +6,13 @@ import { RandomThreeComponent } from "./company/random-three.component";
 import { RandomComponent } from "./employee/random.component";
 import { EpicFormComponent } from "./epic-form/epic-form.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { FunctionalLocComponent } from "./forms/functional-loc/functional-loc.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'form', component: EpicFormComponent},
+    {path: 'functionalLoc', component: FunctionalLocComponent},
     {path: 'employee', component: RandomComponent},
     {path: 'country', component: RandomTwoComponent},
     {path: 'company', component: RandomThreeComponent},
@@ -27,4 +29,5 @@ export const routingComponents = [DashboardComponent,
     RandomTwoComponent,
     RandomThreeComponent,
     EpicFormComponent,
+    FunctionalLocComponent,
     NotFoundComponent]

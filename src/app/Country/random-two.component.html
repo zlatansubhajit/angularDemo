@@ -37,7 +37,7 @@
     
      
     <div class="table-responsive" >
-        <table class="table table-bordered">
+        <table class="table table-bordered" aria-label="country table">
             <thead style="background-color: steelblue; color: white;">
                 <tr>
                     <th scope="col">ID</th>
@@ -61,7 +61,7 @@
                     <td>{{ c.population }}</td>
                     <td>{{ c.currency }}</td>
                     <td>{{ c.terrain }}</td>
-                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCountry(c)"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCountry(c)"><em class="far fa-trash-alt"></em></button></td>
                 </tr>
             </tbody>
         </table>

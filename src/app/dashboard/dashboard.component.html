@@ -106,7 +106,7 @@
                                               <td>{{ e.project }}</td>
                                               <td>{{ e.department }}</td>
                                               <td>{{ e.grade }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#nameModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#nameModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -168,101 +168,6 @@
     
                     
             </div>
-
-
-            <!-- search by employee name -->
-            <div class="row">
-                <div class="collapse  mt-3" id="empByName" >            
-                       <div class="card card-body" *ngFor="let e of emp; index as i; first as isFirst">
-                            <button type="button" class="btn btn-secondary m-1" data-bs-toggle="collapse" [attr.href]="'#'+'ename'+i" role="button" aria-expanded="false" [attr.aria-controls]="'ename' + i" (click)="showEmployee(e)" >{{ e.name }}</button>
-                            <div class="table-responsive collapse" [id]="'ename'+i">
-                                <table class="table table-bordered">
-                                    <thead style="background-color: steelblue; color: white;">
-                                        <tr>
-                                          <th scope="col">ID</th>
-                                          <th scope="col">Age</th>
-                                          <th scope="col">Geography</th>
-                                          <th scope="col">Location</th>
-                                          <th scope="col">Branch</th>
-                                          <th scope="col">Project</th>
-                                          <th scope="col">Department</th>
-                                          <th scope="col">Grade</th>
-                                          <th scope="col">Action</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <th scope="row">{{ e.id }}</th>
-                                              <td>{{ e.age }}</td>
-                                              <td>{{ e.geography }}</td>
-                                              <td>{{ e.location }}</td>
-                                              <td>{{ e.branch }}</td>
-                                              <td>{{ e.project }}</td>
-                                              <td>{{ e.department }}</td>
-                                              <td>{{ e.grade }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#nameModal"><i class="far fa-edit"></i></button></td>
-                                          </tr>
-                                      </tbody>
-                                </table>
-                            </div>
-                        </div>   
-    
-                  </div>
-    
-                  <!-- Modal -->
-                    <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form class="row p-3 m-3 border border-2">
-                                    <div class="col-auto m-1">
-                                        <label for="id">Employee Id</label>
-                                        <input type="number" placeholder="Employee Id" class="form-control form-control-number" name="id" [(ngModel)]="detail.id" #eId>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="age">Employee Age</label>
-                                        <input type="number" placeholder="Employee Age" class="form-control form-control-number" name="age" [(ngModel)]="detail.age" #eAge>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="geography">Employee Geography</label>
-                                        <input type="text" placeholder="Geography" class="form-control" name="geography" [(ngModel)]="detail.geography" #eGeo>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="location">Employee Location</label>
-                                        <input type="text" placeholder="Location" class="form-control" name="location" [(ngModel)]="detail.location" #eLoc>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="branch">Employee Branch</label>
-                                        <input type="text" placeholder="Branch" class="form-control" name="branch" [(ngModel)]="detail.branch" #eBr>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="project">Employee Project</label>
-                                        <input type="text" placeholder="Project" class="form-control" name="project" [(ngModel)]="detail.project" #ePr>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="department">Employee Department</label>
-                                        <input type="text" placeholder="Department" class="form-control" name="department" [(ngModel)]="detail.department" #eDpt>
-                                    </div>
-                                    <div class="col-auto m-1">
-                                        <label for="grade">Employee Grade</label>
-                                        <input type="text" placeholder="Grade" class="form-control" name="grade" [(ngModel)]="detail.grade" #eGr>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateEmp({ id: eId.value, age: eAge.value, geography: eGeo.value, location: eLoc.value, branch: eBr.value, project: ePr.value, department: eDpt.value, grade: eGr.value})">Save changes</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-    
-                    
-            </div>
-            <!-- search by employee name -->
 
             <!-- search by employee ID -->
             <div class="row">
@@ -294,7 +199,7 @@
                                               <td>{{ e.project }}</td>
                                               <td>{{ e.department }}</td>
                                               <td>{{ e.grade }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#idModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#idModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -388,7 +293,7 @@
                                               <td>{{ e.project }}</td>
                                               <td>{{ e.department }}</td>
                                               <td>{{ e.grade }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#locModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#locModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -482,7 +387,7 @@
                                               <td>{{ e.population }}</td>
                                               <td>{{ e.currency }}</td>
                                               <td>{{ e.terrain }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#cntNameModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#cntNameModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -572,7 +477,7 @@
                                               <td>{{ e.population }}</td>
                                               <td>{{ e.currency }}</td>
                                               <td>{{ e.terrain }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#cntTerrModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#cntTerrModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -662,7 +567,7 @@
                                                 <td>{{ e.people }}</td>
                                                 <td>{{ e.ceo }}</td>
                                                 <td>{{ e.established }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#comNameModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#comNameModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>
@@ -752,7 +657,7 @@
                                                 <td>{{ e.people }}</td>
                                                 <td>{{ e.ceo }}</td>
                                                 <td>{{ e.established }}</td>
-                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#comProdModal"><i class="far fa-edit"></i></button></td>
+                                              <td><button class="btn btn-sm btn-outline-dark rm1" data-bs-toggle="modal" data-bs-target="#comProdModal"><em class="far fa-edit"></em></button></td>
                                           </tr>
                                       </tbody>
                                 </table>

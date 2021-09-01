@@ -33,7 +33,7 @@
     </form>
 
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered" aria-label="company table">
             <thead style="background-color: steelblue; color: white;">
                 <tr>
                     <th scope="col">ID</th>
@@ -57,7 +57,7 @@
                     <td>{{ e.people }}</td>
                     <td>{{ e.ceo }}</td>
                     <td>{{ e.established }}</td>
-                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCompany(e)"><i class="far fa-trash-alt"></i></button></td>
+                    <td><button class="btn btn-sm btn-outline-danger rm1" (click)="removeCompany(e)"><em class="far fa-trash-alt"></em></button></td>
                 </tr>
             </tbody>
         </table>

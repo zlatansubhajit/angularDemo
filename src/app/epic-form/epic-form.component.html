@@ -1,49 +1,86 @@
 <div class="container">
-    <form class="row g-3" #addressForm="ngForm">
-        <div class="col-md-6">
-            <label for="name">Name</label>
-            <input type="text" #name="ngModel" 
-            [class.is-invalid]="name.invalid && name.touched" name="name" ngModel placeholder="Enter Name" class="form-control" required>
-            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name</small>
+ 
+<form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+    <div class="row row-cols-3">
+        <div class="col-12 col-md-4">
+            <label for="name">
+                Full Name
+            </label>
+            <input type="text" formControlName="name" placeholder="Enter Name" class="form-control"
+            id="Name1">
         </div>
-        <div class="col-md-6">
-            <label for="phone">Phone Number</label>
-            <input type="tel" placeholder="Enter Phone Number" #phone="ngModel" pattern="^\d{10}$"
-            [class.is-invalid]="phone.invalid && phone.touched" name="phone" ngModel class="form-control" required>
-            <!-- <small [class.d-none]="phone.valid || phone.untouched"></small> -->
-            <div *ngIf="phone.errors && (phone.invalid && phone.touched)">
-                <small class="text-danger" *ngIf="phone.errors.required">Please enter phone number!</small>
-                <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be of 10 digits!</small>
-            </div>
+        <div class="col-12 col-md-4">
+            <label for="phone">
+                Phone Number
+            </label>
+            <input type="tel" formControlName="phone" placeholder="Enter Phone Number" class="form-control"
+            id="Phone1">
         </div>
-        <div class="col-md-6">
-            <label for="email">Email</label>
-            <input type="text" placeholder="Enter Email ID" #email="ngModel" pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"
-            [class.is-invalid]="email.invalid && email.touched" name="email" ngModel class="form-control" required>
-            <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors.required">Please enter email address!</small>
-                <small class="text-danger" *ngIf="email.errors.pattern">Email is not of correct format!</small>
-            </div>
+        <div class="col-12 col-md-4">
+            <label for="email">
+                Email
+            </label>
+            <input type="text" formControlName="email" placeholder="Enter Email" class="form-control"
+            id="Email1">
         </div>
-        <div class="col-12">
-            <label for="currAdd">Current Address</label>
-            <input type="text" placeholder="Enter Current Address" #curentAdd="ngModel" name="currAdd" ngModel class="form-control">
+        
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <label for="currAdd">
+                Current Address
+            </label>
+            <input type="text" formControlName="currAdd" placeholder="Enter Current address" class="form-control"
+            id="currAddress">
         </div>
-        <div class="col-12">
-            <label for="defAdd">Default Address</label>
-            <input type="text" placeholder="Enter Default Address" #defaultAdd="ngModel" name="defAdd" ngModel class="form-control">
+        <div class="col-12 col-md-6">
+            <label for="defAdd">
+                Default Address
+            </label>
+            <input type="text" formControlName="defAdd" placeholder="Enter Default address" class="form-control"
+            id="defAddress">
         </div>
-        <div class="col-12">
-            <div class="form-check">
-            <label for="check" class="form-check-label">Current address is same as default address</label>
-            <input type="checkbox" class="form-check-input">
-            </div>
+    </div>
+    <div class="row m-1">
+        <div class="col-12 col-md-6 form-check">
+            <label for="copyChk" class="form-check-label">
+                Default address is same as current address
+            </label>
+            <input type="checkbox" formControlName="copyChk" class="form-check-input"
+            (change)="copyAddress()">
         </div>
-        <div class="col-12">
-            <button type="button" class="btn btn-primary">Submit</button>
+        <div class="col-md-12">
+            <button class="btn btn-primary" type="submit">Add</button>
         </div>
-    </form>
+    </div>
+</form>
+
+   
 </div>
 
-
-
+<div class="container" *ngIf="newAddress[0]">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead style="background-color: steelblue; color: white;">
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Current Address</th>
+                  <th scope="col">Default Address</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let e of newAddress; let i=index">
+                  <tr>
+                      <th scope="row">{{ e.name }}</th>
+                      <td>{{ e.phone }}</td>
+                      <td>{{ e.email }}</td>
+                      <td>{{ e.currAdd }}</td>
+                      <td>{{ e.defAdd }}</td>
+                      <td><button class="btn btn-sm btn-outline-dark rm1" (click)="editAddress(i)" ><i class="far fa-edit"></i></button></td>
+                  </tr>
+              </tbody>
+        </table>
+    </div>
+</div>
